@@ -15,3 +15,8 @@ Build
     # Build the application
     gradle build
 
+License
+-------
+
+Code is under WTFPL (see LICENCE).
+Graphical ressources came from AOSP (APACHE).
