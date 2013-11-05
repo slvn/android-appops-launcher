@@ -2,5 +2,6 @@
 <resources>
 
     <string name="app_name">AppOps</string>
+    <string name="error_msg">Sorry, AppOps settings cannot be launched on this Android device. I am now useless, so uninstall me ! :-(</string>
 
 </resources>
