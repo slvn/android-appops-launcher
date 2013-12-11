@@ -1,12 +1,21 @@
 package fr.slvn.appops;
 
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
 import android.widget.Toast;
 
+import java.util.Arrays;
+
 public class MainActivity extends Activity {
+
+    private static final String[] INCOMPATIBLE_LIST =
+            {
+                    "4.4.2" // AppOpsSummary removed from whitelist
+            };
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,6 +27,9 @@ public class MainActivity extends Activity {
     private void launchAppOps() {
         if (launchAppOpsViaAction()) {
             // Classic method for 4.3 worked !
+        } else if (isAndroidVersionIncompatible()) {
+            // Cannot launch AppOps on those version
+            uninstallAppOps();
         } else if (launchAppOpsViaComponentExtra()) {
             // Tricky method from 4.4 worked !
         } else {
@@ -29,6 +41,13 @@ public class MainActivity extends Activity {
     private boolean launchAppOpsViaAction() {
         Intent intent = new Intent("android.settings.APP_OPS_SETTINGS");
         return launchAppOps(intent);
+    }
+
+    private boolean isAndroidVersionIncompatible() {
+        return Arrays.binarySearch(
+                INCOMPATIBLE_LIST,
+                Build.VERSION.RELEASE
+        ) > -1;
     }
 
     private boolean launchAppOpsViaComponentExtra() {
