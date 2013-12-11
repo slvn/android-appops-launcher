@@ -1,7 +1,9 @@
 AppOps Launcher
 ===============
 
-Simple application to launch the App Ops setting screen (Android 4.3)
+Simple application to launch the App Ops setting screen (Android 4.3 & Android 4.4).
+Not more available since Android 4.4.2.
+This should work on "non vanilla" system but without any guaranties.
 
 Build
 -----
