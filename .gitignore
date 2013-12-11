@@ -18,3 +18,10 @@ local.properties
 # Eclipse project files
 .classpath
 .project
+
+# IDEA + gradle stuff
+.gradle/
+.idea/
+android-appops-launcher.iml
+build/
+
